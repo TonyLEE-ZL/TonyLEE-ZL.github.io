@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>字符串 数组(二) - Coda</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="ZhaiLiang" /><meta name="description" content="迭代器 迭代器类似于指针，提供了对对象的间接访问，string类型和容器都支持迭代器的操作。和指针不同的是获取迭代器不是使用取地址符。典型的成" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.56.0 with theme even" />
+
+
+<link rel="canonical" href="http://TonyLEE-ZL.github.io.git/post/10_22_2/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="字符串 数组(二)" />
+<meta property="og:description" content="迭代器 迭代器类似于指针，提供了对对象的间接访问，string类型和容器都支持迭代器的操作。和指针不同的是获取迭代器不是使用取地址符。典型的成" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://TonyLEE-ZL.github.io.git/post/10_22_2/" />
+<meta property="article:published_time" content="2019-10-22T13:27:17+08:00" />
+<meta property="article:modified_time" content="2019-10-22T13:27:17+08:00" />
+<meta itemprop="name" content="字符串 数组(二)">
+<meta itemprop="description" content="迭代器 迭代器类似于指针，提供了对对象的间接访问，string类型和容器都支持迭代器的操作。和指针不同的是获取迭代器不是使用取地址符。典型的成">
+
+
+<meta itemprop="datePublished" content="2019-10-22T13:27:17&#43;08:00" />
+<meta itemprop="dateModified" content="2019-10-22T13:27:17&#43;08:00" />
+<meta itemprop="wordCount" content="1588">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="字符串 数组(二)"/>
+<meta name="twitter:description" content="迭代器 迭代器类似于指针，提供了对对象的间接访问，string类型和容器都支持迭代器的操作。和指针不同的是获取迭代器不是使用取地址符。典型的成"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Miscellany</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Miscellany</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">字符串 数组(二)</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2019-10-22 </span>
+        
+          <span class="more-meta"> 约 1588 字 </span>
+          <span class="more-meta"> 预计阅读 4 分钟 </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#迭代器">迭代器</a>
+<ul>
+<li><a href="#迭代运算符及类型">迭代运算符及类型</a></li>
+<li><a href="#迭代器运算">迭代器运算</a></li>
+</ul></li>
+<li><a href="#数组">数组</a>
+<ul>
+<li><a href="#定义和初始化内置数组">定义和初始化内置数组</a></li>
+<li><a href="#指针和数组">指针和数组</a></li>
+<li><a href="#指针也是迭代器">指针也是迭代器</a></li>
+<li><a href="#c风格字符串">C风格字符串</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<h2 id="迭代器">迭代器</h2>
+
+<p>迭代器类似于指针，提供了对对象的间接访问，string类型和容器都支持迭代器的操作。和指针不同的是获取迭代器不是使用取地址符。典型的成员函数 begin返回指向的第一个元素的迭代器。end指向尾元素的下一个位置，该迭代器只是个标记表示已经处理完容器中的所有元素。特殊情况下如果容器为空，begin和end返回同一个迭代器。</p>
+
+<blockquote>
+<p><em>auto b = v.begin; auto e = v.end;</em></p>
+</blockquote>
+
+<h3 id="迭代运算符及类型">迭代运算符及类型</h3>
+
+<p>和指针类似使用解迭代器来获取所指示的元素，执行解引用的迭代器必须合法并确实指示着某个元素。迭代器的类型：iterator ,const_iterator 。 如果对象为常量必须使用const修饰的迭代器。cbeing cend 函数返回值类型都是const_iterator</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-base" data-lang="base"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-base" data-lang="base">vector&lt;int&gt;::iterrator it; //it能读写元素
+string::const_iterator it2; // it2只能读取元素不能写</code></pre></td></tr></table>
+</div>
+</div>
+<p><em>某些对vector对象的操作可能会使迭代器失效.但凡是使用迭代器的循环体，都不要向迭代器所属的容器内添加元素。</em></p>
+
+<h3 id="迭代器运算">迭代器运算</h3>
+
+<p>两个迭代器指向同一个容器的元素或者尾元素的下一个位置，就能相减得到两个元素的距离。得到的类型名为 <em>difference_type</em>  的带符号整型数。距离可以为正也可以为负。</p>
+
+<p>迭代器运算的一个经典算法是二分法搜索</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-base" data-lang="base"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-base" data-lang="base">// text必须有序
+// beg end 为我们的搜索范围
+auto beg = text.begin;
+auto end = text.end;
+auto mid = text.begin +(end - beg);
+while (mid != end &amp;&amp; *mid != sought)
+{
+    if(*mid &gt; sought)
+        end = mid;
+    else
+        beg = mid + 1;
+    mid = beg + (end - beg) / 2;
+}</code></pre></td></tr></table>
+</div>
+</div>
+<h2 id="数组">数组</h2>
+
+<p>数组是类似于vector的一种数据结构，存储同样类型的对象的容器，这些对象没有名字，需要通过其所在的位置访问。但是数组大小去确定不变，不能随意向数组中添加元素，如果不清楚数组的确切个数，使用vector.</p>
+
+<h3 id="定义和初始化内置数组">定义和初始化内置数组</h3>
+
+<p>显式初始化数组元素：可以对数组进行列表初始化，此时可以忽略数组的维度，但是初始值不能大于数组维度。</p>
+
+<p>字符数组可以用字符串字面值初始化。不能将数组的内容拷贝给其他数组作为其初始值，也不能为其他数组赋值。</p>
+
+<p>复杂数组声明</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-base" data-lang="base"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-base" data-lang="base">int *ptr[10]; //含有十个指针的数组
+int &amp;ptr1[10] //错误 不存在引用数组
+int (*ptr)[10] = &amp;arr // 指向一个含有10个整数的数组
+int (&amp;ptr)[10] = arr //引用一个含有10个整数的数组</code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="指针和数组">指针和数组</h3>
+
+<p>数组对象是一个指向该数组首元素的指针</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-base" data-lang="base"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-base" data-lang="base">int a[] = {1, 2, 4 };
+auto ia(a); //ia 是一个整型指针
+ia = 3; //不能用int 赋值给int*</code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="指针也是迭代器">指针也是迭代器</h3>
+
+<p>如同迭代器一样，遍历数组需要知道数组的首元素地址和尾后指针为此C+11提供了 begin和end函数，功能与上文的同名函数类似。两个函数定义在iterator头文件中。尾后指针不能进行解引用</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-base" data-lang="base"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-base" data-lang="base">#include &lt;iterator&gt;
+
+
+int ia[] = {1, 3, 4, 4};
+int *beg = begin(ia);
+int *last = end(ia);</code></pre></td></tr></table>
+</div>
+</div>
+<p>数组可以使用下标访问元素，数组的下标值可以为 <em>负数</em> 。而string vector 只能为无符号值。</p>
+
+<h3 id="c风格字符串">C风格字符串</h3>
+
+<p>C风格字符串不是一种类型，而是为了表达和使用字符串而形成的一种约定俗成的写法，按此习惯性的写法的字符串在字符数组中以 <em>空字符结束</em> 一般利用指针来操作这些字符串。</p>
+
+<ul>
+<li><p>传入函数中的C风格字符串必须跟着&rsquo;\0&rsquo;以表示结束该字符串,否则字符串可能会在内存中不断寻找，直到遇到空字符才停下来。</p></li>
+
+<li><p>当将运算符作用到C风格字符串时，实际比较的是指针而非字符串本身。</p></li>
+
+<li><p>对于大多数应用来说，使用string要比C风格字符串更加安全高效。</p></li>
+
+<li><p>允许使用以空字符串结束的字符数组初始化string对象或者为对象赋值</p></li>
+
+<li><p>在string对象加法运算中允许使用以空字符结束的字符数组作为其中的一个运算对象。</p></li>
+
+<li><p>无法使用string对象来替换C风格字符串，例如不能使用string对象直接初始化指向字符的指针，使用c_str()函数可以完成转换，返回的指针类型为const char * 这样保证我们不会改变字符数组的内容。</p></li>
+
+<li><p>无法保证c_str()函数返回的数组一直有效，如果后续操作改变了string对象的值，可能让返回得到的C风格字符串失去效用。因此最好重新拷贝一份。</p></li>
+
+<li><p>可以用数组初始化vector对象，实现这一目的，只需要指明拷贝区域的首元素地址和尾后元素地址</p></li>
+</ul>
+
+<blockquote>
+<p>int init_arr[] = {1, 3, 4, 5, 6};
+ vector<int> ivec (begin(init_arr), end(init_arr));</p>
+</blockquote>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">ZhaiLiang</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2019-10-22
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/2019_10_22/">
+            <span class="next-text nav-default">字符串 数组(一)</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="471104570@qq.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://localhost:1313" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="http://localhost:1313" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="http://localhost:1313" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="http://localhost:1313" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="http://localhost:1313" class="iconfont icon-google" title="google"></a>
+      <a href="http://localhost:1313" class="iconfont icon-github" title="github"></a>
+      <a href="http://localhost:1313" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="http://localhost:1313" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="http://localhost:1313" class="iconfont icon-douban" title="douban"></a>
+      <a href="http://localhost:1313" class="iconfont icon-pocket" title="pocket"></a>
+      <a href="http://localhost:1313" class="iconfont icon-tumblr" title="tumblr"></a>
+      <a href="http://localhost:1313" class="iconfont icon-instagram" title="instagram"></a>
+      <a href="http://localhost:1313" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="http://TonyLEE-ZL.github.io.git/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">ZhaiLiang</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+<script id="baidu_push">
+  (function(){
+    if (window.location.hostname === 'localhost') return;
+    var bp = document.createElement('script'); bp.async = true;
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+      bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+  })();
+</script>
+
+
+
+
+</body>
+</html>
