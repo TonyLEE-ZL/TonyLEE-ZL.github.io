@@ -1,15 +1,33 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Coda</title>
+    <title>Posts on ZL_Blog</title>
     <link>http://TonyLEE-ZL.github.io.git/post/</link>
-    <description>Recent content in Posts on Coda</description>
+    <description>Recent content in Posts on ZL_Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 22 Oct 2019 13:27:17 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 23 Oct 2019 16:16:16 +0800</lastBuildDate>
     
 	<atom:link href="http://TonyLEE-ZL.github.io.git/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>表达式 (二)</title>
+      <link>http://TonyLEE-ZL.github.io.git/post/10_23_2/</link>
+      <pubDate>Wed, 23 Oct 2019 16:16:16 +0800</pubDate>
+      
+      <guid>http://TonyLEE-ZL.github.io.git/post/10_23_2/</guid>
+      <description>位运算符 位运算符作用于整数类型的运算对象。并把运算对象看成式二进制位的集合。 移位运算符 &amp;lt;&amp;lt; 左移运算符，bits &amp;lt;&amp;lt; 8 首先令左侧运算内容向左侧移动</description>
+    </item>
+    
+    <item>
+      <title>表达式 (一)</title>
+      <link>http://TonyLEE-ZL.github.io.git/post/10_23_1/</link>
+      <pubDate>Wed, 23 Oct 2019 09:39:47 +0800</pubDate>
+      
+      <guid>http://TonyLEE-ZL.github.io.git/post/10_23_1/</guid>
+      <description>基础 左值：当对象被用作左值的时候，用的对象在内存中的位置。 右值：当一个对象被用作右值的时候用的是对象的值。 赋值运算符需要一个左值运算对象，得</description>
+    </item>
     
     <item>
       <title>字符串 数组(二)</title>
