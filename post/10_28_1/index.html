@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>表达式 (一) - ZL_Blog</title>
+  <title>函数 (二) - ZL_Blog</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="ZhaiLiang" /><meta name="description" content="基础 左值：当对象被用作左值的时候，用的对象在内存中的位置。 右值：当一个对象被用作右值的时候用的是对象的值。 赋值运算符需要一个左值运算对象，得" /><meta name="keywords" content="Hugo, theme, even" />
+<meta name="author" content="ZhaiLiang" /><meta name="description" content="返回类型和return语句 不要返回局部对象的引用或者指针。一旦函数完成，局部对象被释放，引用的内容不存在，指针也将指向不存在的对象。 列表初始" /><meta name="keywords" content="Hugo, theme, even" />
 
 
 
@@ -26,7 +26,7 @@
 <meta name="generator" content="Hugo 0.56.0 with theme even" />
 
 
-<link rel="canonical" href="http://TonyLEE-ZL.github.io.git/post/10_23_1/" />
+<link rel="canonical" href="http://TonyLEE-ZL.github.io.git/post/10_28_1/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -38,26 +38,26 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="表达式 (一)" />
-<meta property="og:description" content="基础 左值：当对象被用作左值的时候，用的对象在内存中的位置。 右值：当一个对象被用作右值的时候用的是对象的值。 赋值运算符需要一个左值运算对象，得" />
+<meta property="og:title" content="函数 (二)" />
+<meta property="og:description" content="返回类型和return语句 不要返回局部对象的引用或者指针。一旦函数完成，局部对象被释放，引用的内容不存在，指针也将指向不存在的对象。 列表初始" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://TonyLEE-ZL.github.io.git/post/10_23_1/" />
-<meta property="article:published_time" content="2019-10-23T09:39:47+08:00" />
-<meta property="article:modified_time" content="2019-10-23T09:39:47+08:00" />
-<meta itemprop="name" content="表达式 (一)">
-<meta itemprop="description" content="基础 左值：当对象被用作左值的时候，用的对象在内存中的位置。 右值：当一个对象被用作右值的时候用的是对象的值。 赋值运算符需要一个左值运算对象，得">
+<meta property="og:url" content="http://TonyLEE-ZL.github.io.git/post/10_28_1/" />
+<meta property="article:published_time" content="2019-10-28T16:07:26+08:00" />
+<meta property="article:modified_time" content="2019-10-28T16:07:26+08:00" />
+<meta itemprop="name" content="函数 (二)">
+<meta itemprop="description" content="返回类型和return语句 不要返回局部对象的引用或者指针。一旦函数完成，局部对象被释放，引用的内容不存在，指针也将指向不存在的对象。 列表初始">
 
 
-<meta itemprop="datePublished" content="2019-10-23T09:39:47&#43;08:00" />
-<meta itemprop="dateModified" content="2019-10-23T09:39:47&#43;08:00" />
-<meta itemprop="wordCount" content="835">
+<meta itemprop="datePublished" content="2019-10-28T16:07:26&#43;08:00" />
+<meta itemprop="dateModified" content="2019-10-28T16:07:26&#43;08:00" />
+<meta itemprop="wordCount" content="1226">
 
 
 
 <meta itemprop="keywords" content="" />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="表达式 (一)"/>
-<meta name="twitter:description" content="基础 左值：当对象被用作左值的时候，用的对象在内存中的位置。 右值：当一个对象被用作右值的时候用的是对象的值。 赋值运算符需要一个左值运算对象，得"/>
+<meta name="twitter:title" content="函数 (二)"/>
+<meta name="twitter:description" content="返回类型和return语句 不要返回局部对象的引用或者指针。一旦函数完成，局部对象被释放，引用的内容不存在，指针也将指向不存在的对象。 列表初始"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -124,13 +124,13 @@
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">表达式 (一)</h1>
+      <h1 class="post-title">函数 (二)</h1>
 
       <div class="post-meta">
-        <span class="post-time"> 2019-10-23 </span>
+        <span class="post-time"> 2019-10-28 </span>
         
-          <span class="more-meta"> 约 835 字 </span>
-          <span class="more-meta"> 预计阅读 2 分钟 </span>
+          <span class="more-meta"> 约 1226 字 </span>
+          <span class="more-meta"> 预计阅读 3 分钟 </span>
         
       </div>
     </header>
@@ -142,10 +142,24 @@
 <ul>
 <li>
 <ul>
-<li><a href="#基础">基础</a>
+<li><a href="#返回类型和return语句">返回类型和return语句</a>
 <ul>
-<li><a href="#算术运算符">算术运算符</a></li>
-<li><a href="#赋值-递增递减运算符">赋值 递增递减运算符</a></li>
+<li><a href="#返回数组指针">返回数组指针</a></li>
+</ul></li>
+<li><a href="#函数重载">函数重载</a>
+<ul>
+<li><a href="#重载与作用域">重载与作用域</a></li>
+</ul></li>
+<li><a href="#特殊用途的语言特性">特殊用途的语言特性</a>
+<ul>
+<li><a href="#默认形参">默认形参</a></li>
+<li><a href="#constexpr-函数">constexpr 函数</a></li>
+</ul></li>
+<li><a href="#函数指针">函数指针</a>
+<ul>
+<li><a href="#重载函数的指针">重载函数的指针</a></li>
+<li><a href="#函数指针形参">函数指针形参</a></li>
+<li><a href="#返回指向函数的指针">返回指向函数的指针</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -155,52 +169,49 @@
     <div class="post-content">
       
 
-<hr />
+<h2 id="返回类型和return语句">返回类型和return语句</h2>
 
-<h2 id="基础">基础</h2>
+<ol>
+<li><p>不要返回局部对象的引用或者指针。一旦函数完成，局部对象被释放，引用的内容不存在，指针也将指向不存在的对象。</p></li>
 
-<ul>
-<li><p>左值：当对象被用作左值的时候，用的对象在内存中的位置。 右值：当一个对象被用作右值的时候用的是对象的值。</p></li>
+<li><p>列表初始化返回值：函数可以返回花括号包围的值的列表。在这种情况下，如果函数返回是内置类型，花括号中最多含有一个值，如果函数返回的是类类型，由类本身定义初始值如何使用。</p></li>
+</ol>
 
-<li><p>赋值运算符需要一个左值运算对象，得到结果仍然是一个左值。</p></li>
+<h3 id="返回数组指针">返回数组指针</h3>
 
-<li><p>取地址符号作用与一个左值，返回一个指向对象的指针，这个指针是一个右值。</p></li>
-
-<li><p>内置类型和迭代器递增和递减运算符作用与左值对象，其前置版本所得的结果也是左值。</p></li>
-
-<li><p>内置解引用运算符，下标运算符 的求值结果为左值。</p></li>
-</ul>
-
-<p>求值顺序：对于那些没有指定求值顺序的表达式来说如果表达式指向并修改了同一个对象，将会引发并产生未定义的错误。</p>
+<p>因为数组不能被拷贝，所以函数不能返回数组，不过却可以返回数组的指针或引用</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-base" data-lang="base"><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-base" data-lang="base">int i = 0;
-cout &lt;&lt; i &lt;&lt; &#34;&#34; &lt;&lt; ++i
-//编译器可能先求i的值在求i++的值或者另外的顺序，因此表达式行为不可知，产生错误</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-base" data-lang="base">//使用别名表示
+typedef int arrTp[10] //arrT表示含有十个整数的数组
+arrT * fun(int i)//fun返回一个指向十个整数的数组的指针。
+
+// 不用typedef
+
+int (*func(int i))[10] // 表示函数返回类型为一个指针，指针指向的是包含10个整数的数组。</code></pre></td></tr></table>
 </div>
 </div>
-<h3 id="算术运算符">算术运算符</h3>
-
-<p>一元算数运算符优先级最高，一元运算符都是左结合律。按照从左到右顺序组合。</p>
-
-<h3 id="赋值-递增递减运算符">赋值 递增递减运算符</h3>
-
-<p>赋值运算符的左侧运算对象必须是一个可以修改的左值。结果类型为左值。如果赋值运算符左右两个运算对象类型不同，则右侧的运算对象类型转换成左侧类型。满足右结合律，</p>
-
-<p>赋值运算符的优先级较低 切勿混淆使用相等运算符和赋值运算符。</p>
-
-<p>前置和后置运算符：前置版本返回对象本身作为左值返回。 后置版本则是将对象的原始值的副本作为右值返回。</p>
-
 <ul>
-<li><em>建议</em> 除非必须，否则不用递增运算符的后置版本。</li>
+<li>使用尾置返回类型:在形参列表后面加上-&gt;表示函数的返回值类型，在本应该出现返回类型的地方放置一个auto。</li>
 </ul>
 
-<p>在一条语句中混用解引用和递增运算符：如果我们想在一条符复合表达式中既将变量加减一又能使用原来的值 就可以用递增递减的后置版本了。 例子：</p>
+<blockquote>
+<p>auto fun(int i) -&gt; int(*)[10];</p>
+</blockquote>
+
+<h2 id="函数重载">函数重载</h2>
+
+<ul>
+<li><p>如前文所说，顶层const不影响传入函数的对象</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-base" data-lang="base"><span class="lnt">1
@@ -210,14 +221,81 @@ cout &lt;&lt; i &lt;&lt; &#34;&#34; &lt;&lt; ++i
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-base" data-lang="base">auto pbeg = v.begin();
-while(pbeg != v.end &amp;&amp; *pbeg &gt;= 0)
-    cout &lt;&lt; *pbeg++ &lt;&lt; endl;
-    //由于后置递增符号返回的初始值的副本因此答应的值为原始值，
-    //如果用前置，不能输出第一个元素，如果没有非负元素解引用一个不存在的元素造成巨大的错误。</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-base" data-lang="base">fucn1(int );
+fucn1(const int); //两个函数重复定义
+
+fucn2(int *);
+func2(int* const); //重复定义</code></pre></td></tr></table>
 </div>
+</div></li>
+
+<li><p>另外一方面，如果形参是某种类型的指针或者引用，则通过区分其指向的是常量对象还是非常量对象实现函数重载，此时的const是底层的。 由于const对象不能转化成非常量对象因此它只能使用const声明的函数，而非常量可以转化成常量，形参列表变量类型相同的所有函数都可以调用，但是编译器会优先选择非常量版本。</p></li>
+</ul>
+
+<h3 id="重载与作用域">重载与作用域</h3>
+
+<ul>
+<li>不要将函数的声明置于局部作用域内，这样会屏蔽掉外面的同名重载函数。</li>
+</ul>
+
+<h2 id="特殊用途的语言特性">特殊用途的语言特性</h2>
+
+<h3 id="默认形参">默认形参</h3>
+
+<ul>
+<li><p>若有多个默认实参，函数调用的时候按照其位置进行解析，默认实参填补函数调用缺少的尾部的实参。</p></li>
+
+<li><p>默认实参的声明，多次声明一个函数是合法的，但是同一默认形参只能声明一次，后续的声明只能为之前没有默认值的形参添加默认形参。</p></li>
+</ul>
+
+<h3 id="constexpr-函数">constexpr 函数</h3>
+
+<ul>
+<li><p>指能用于常量表达式的函数，遵循以下规定:函数返回类型及所有形参类型都得是字面值类型，而且函数体中必须有且只有一个return语句。 return语句不一定返回常量表达式。</p></li>
+
+<li><p>内联函数和constexpr函数可以在程序中多次定义，内联函数和constexpr函数通常定义在头文件中。</p></li>
+</ul>
+
+<h2 id="函数指针">函数指针</h2>
+
+<ol>
+<li>当我们把函数名作为一个值使用的时候，该函数自动转换成指针</li>
+</ol>
+
+<blockquote>
+<p>pf = length</p>
+
+<p>pf = &amp;length   //这两种赋值语句都可取</p>
+</blockquote>
+
+<ol>
+<li><p>直接使用指向函数的指针调用该函数，无须提前解引用指针。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-base" data-lang="base"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-base" data-lang="base">bool b1 = pf(&#34;HELLO&#34;, &#34;Good&#34;);
+bool b2 = (*pf)(&#34;HELLO&#34;, &#34;Good&#34;);
+bool b3 = length(&#34;HELLO&#34;, &#34;Good&#34;);</code></pre></td></tr></table>
 </div>
-<p>大多数的运算符没有规定运算对象的求值顺序，然而如果一条子表达式改变了某个运算对象的值，另外一个子表达式使用了该值，运算对象的求值顺序就很关键了。</p>
+</div></li>
+
+<li><p>指向不同类型的指针不存在转换关系，可以为函数指针赋一个0表示没有指向任何一个函数。</p></li>
+</ol>
+
+<h3 id="重载函数的指针">重载函数的指针</h3>
+
+<ul>
+<li>使用重载函数的时候，上下文必须清晰的界定到底使用了哪种函数。</li>
+</ul>
+
+<h3 id="函数指针形参">函数指针形参</h3>
+
+<ul>
+<li><p>当函数的参数列表中有函数当成形参的时候，会自动转换成函数指针的形式。由于直接使用函数指针显得很冗长，使用类型别名的方法。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code class="language-base" data-lang="base"><span class="lnt">1
@@ -228,14 +306,22 @@ while(pbeg != v.end &amp;&amp; *pbeg &gt;= 0)
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-base" data-lang="base">while(beg != s.end() &amp;&amp; !isspace(*beg))
-    *beg = toupper(*beg++)
-    //两边都用beg且右边改变了beg的值 由于对象的求值顺序不一致因此会造成未定义的问题
+<pre class="chroma"><code class="language-base" data-lang="base">typedef bool Func (const string &amp; , const string &amp;);
+typedef decltype (length) Func2; // 上面两个语句表达意思一致
 
-    *beg = toupper(*beg); //如果先求左边的值
-    *(beg + 1) = toupper(*beg); //如果先求右边的值</code></pre></td></tr></table>
+typedef bool(*Funcp) (consr string &amp;, const string &amp;)
+typedef decltype (length) *FuncP2  
+// 最后语句执行结果是函数的类型需要加上*才能得到指针</code></pre></td></tr></table>
 </div>
-</div>
+</div></li>
+</ul>
+
+<h3 id="返回指向函数的指针">返回指向函数的指针</h3>
+
+<ul>
+<li>与函数指针做形参的情况不同，返回类型不会自动转换成指针，必须显式地将返回类型指定为指针。</li>
+</ul>
+
     </div>
 
     <div class="post-copyright">
@@ -246,7 +332,7 @@ while(pbeg != v.end &amp;&amp; *pbeg &gt;= 0)
   <p class="copyright-item">
     <span class="item-title">上次更新</span>
     <span class="item-content">
-        2019-10-23
+        2019-10-28
         
     </span>
   </p>
@@ -256,13 +342,9 @@ while(pbeg != v.end &amp;&amp; *pbeg &gt;= 0)
 <footer class="post-footer">
       
       <nav class="post-nav">
-        <a class="prev" href="/post/10_23_2/">
-            <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">表达式 (二)</span>
-            <span class="prev-text nav-mobile">上一篇</span>
-          </a>
-        <a class="next" href="/post/10_22_2/">
-            <span class="next-text nav-default">字符串 数组(二)</span>
+        
+        <a class="next" href="/post/10_25_1/">
+            <span class="next-text nav-default">函数</span>
             <span class="next-text nav-mobile">下一篇</span>
             <i class="iconfont icon-right"></i>
           </a>
